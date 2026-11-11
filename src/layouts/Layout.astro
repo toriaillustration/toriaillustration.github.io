@@ -50,7 +50,7 @@ const linkIsActive = (href: string) => {
 					{navLinks.map((link) => (
 						<a class:list={[
 							'transition-colors hover:text-red-600 text-xl',
-							linkIsActive(link.href) ? 'font-semibold text-red-600' : ''
+							linkIsActive(link.href) ? 'text-red-600' : ''
 						]}
 						href={link.href}
 						>
