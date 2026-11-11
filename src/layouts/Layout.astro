@@ -3,7 +3,9 @@ import '../styles/style.css'
 
 const {
   title = "",
-  hero = false
+  hero = false,
+  heroTitle = "",
+  heroSubTitle = ""
 } = Astro.props;
 
 const navLinks = [
@@ -32,10 +34,10 @@ const linkIsActive = (href: string) => {
 		<meta name="generator" content={Astro.generator} />
     	<title>{[title, 'Victoria Todd'].filter(Boolean).join(' - ')}</title>
 	</head>
-	<body class="font-serif">
+	<body class="font-serif min-h-screen">
 		<header class="sticky top-0 z-50">
-			<div class="mx-auto flex-col max-w-6xl flex-wrap items-center justify-between gap-4 px-4 pt-4 pb-6 md:flex-nowrap">
-				<a class="flex flex-row justify-center items-center gap-3 mb-6" href="/">
+			<div class="mx-auto flex-col max-w-6xl flex-wrap items-center justify-between gap-4 px-4 pt-8 pb-8 md:flex-nowrap">
+				<a class="flex flex-row justify-center items-center gap-3 mb-10" href="/">
 					<img
 						src="/ladybird.svg"
 						alt="Ladybird"
@@ -56,17 +58,17 @@ const linkIsActive = (href: string) => {
 						</a>
 					))}
 				</nav>
-				<button class="text-3xl text-white md:hidden" aria-label="Open navigation" onclick="document.querySelector('nav.mobile-menu')?.classList.toggle('hidden')">
+				<button class="text-3xl text-black md:hidden" aria-label="Open navigation" onclick="document.querySelector('nav.mobile-menu')?.classList.toggle('hidden')">
 					<span class="sr-only">Menu</span>
 					&#9776;
 				</button>
 			</div>
-			<nav class="mobile-menu hidden border-t border-white/10 bg-[#050914] px-4 pt-4 pb-6 text-sm text-white/80 md:hidden">
+			<nav class="mobile-menu hidden border-t border-white/10 bg-white px-4 pt-4 pb-6 text-sm text-black md:hidden">
 				<div class="flex flex-col gap-3">
 				{navLinks.map((link) => (
 					<a
 					class:list=[
-						'transition-colors hover:text-white',
+						'transition-colors hover:text-red-600',
 						linkIsActive(link.href) ? 'font-semibold text-white' : ''
 					]
 					href={link.href}
@@ -77,11 +79,19 @@ const linkIsActive = (href: string) => {
 				</div>
 			</nav>
 		</header>
-		<main class:list={[hero ? 'pt-0' : 'pt-6']}>
-			<slot />
+		<main class:list={[hero ? 'pt-0' : 'pt-6 mx-auto max-w-8xl']}>
+			{hero && (
+				<div class="mb-4 pt-10 pb-20 bg-[url('/hero.svg')] bg-[#9F0000] bg-bottom bg-no-repeat text-center">
+					<h1 class="text-4xl my-5 text-white">{heroTitle}</h1>
+					<p class="text-2xl my-5 text-white">{heroSubTitle}</p>
+				</div>
+			)}
+			<div class="px-10">	
+				<slot />
+			</div>
 		</main>
-		<footer class="mt-16 bg-[url('/footer.svg')]">
-			<div class="mx-auto grid max-w-6xl gap-10 px-4 pt-20 pb-12 md:grid-cols-2">
+		<footer class="mt-16 bg-[url('/footer.svg')] bg-top bg-no-repeat">
+			<div class="mx-auto grid max-w-8xl gap-10 px-10 pt-20 pb-12 md:grid-cols-2">
 				<div class="space-y-4">
 					<div class="flex items-center gap-3 text-white">
 						<img src="/ladybird.svg" alt="Ladybird" class="h-20 w-auto" loading="lazy" />
