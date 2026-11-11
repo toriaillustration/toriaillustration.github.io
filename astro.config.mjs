@@ -12,6 +12,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://www.toriatodd.co.uk',
+  site: 'https://toriaillustration.github.io',
   integrations: [sitemap(), robotsTxt()]
 });
