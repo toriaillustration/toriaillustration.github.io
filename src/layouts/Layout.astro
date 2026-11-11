@@ -1,5 +1,4 @@
 ---
-
 import '../styles/style.css'
 
 const {
@@ -11,19 +10,17 @@ const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Illustration', href: '/illustration' },
   { label: 'Concept Art', href: '/concept-art' },
-  { label: 'Storyboarding', href: '/storybording' },
-  { label: '2D Animation', href: '/3d-animation' },
+  { label: 'Storyboarding', href: '/storyboarding' },
+  { label: '2D Animation', href: '/2d-animation' },
   { label: 'About me', href: '/about-me' }
 ];
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const firstSegment = currentPath.split('/').filter(Boolean)[0] ?? '';
 
 const linkIsActive = (href: string) => {
   if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
 };
-
 ---
 <!doctype html>
 <html lang="en" class="scroll-smooth">
