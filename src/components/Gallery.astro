@@ -1,0 +1,64 @@
+
+---
+import galleryImages from '../data/gallery-images.json';
+---
+
+<div class="gallery">
+  {galleryImages.map((image) => (
+    <a
+      href={image.src}
+      class="gallery-lightbox"
+      data-gallery="main-gallery"
+      data-title={image.title}
+      data-description={image.description}
+      aria-label={`View ${image.title}`}
+    >
+      <img
+        src={image.thumb || image.src}
+        alt={image.alt}
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  ))}
+</div>
+
+<script>
+  import GLightbox from 'glightbox';
+  import 'glightbox/dist/css/glightbox.css';
+
+  GLightbox({
+    selector: '.gallery-lightbox',
+    touchNavigation: true,
+    loop: true,
+    zoomable: true,
+    draggable: true,
+  });
+</script>
+
+<style>
+  .gallery {
+    columns: 5 220px;
+    column-gap: 16px;
+  }
+
+  .gallery a {
+    display: block;
+    break-inside: avoid;
+    margin-bottom: 16px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery a:hover img {
+    transform: scale(1.04);
+  }
+</style>

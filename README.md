@@ -1,34 +1,22 @@
-# Astro Starter Kit: Basics
+# Victoria Todd - Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Editing Guidelines
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The following pages are edited directly:
+- /about-me (about-me.astro)
 
-## 🚀 Project Structure
+Content is added to the following pages via their respective JSON file:
+- /home (home.json) - Gallery Layout
+- /concept-art (concept-art.json) - Project Layout
+- /illustration (illustration.json) - Project Layout
+- /2d-animation (2d-animation.json) - Project Layout
+- /storyboarding (storyboarding.json) - Slideshow Layout
 
-Inside of your Astro project, you'll see the following folders and files:
+## Robots.txt, Sitemap.xml
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+Both of these files are generated automatically upon building.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -40,7 +28,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
