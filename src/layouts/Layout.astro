@@ -36,17 +36,17 @@ const linkIsActive = (href: string) => {
 	</head>
 	<body class="font-serif min-h-screen bg-[#FAF7F0]">
 		<header class="sticky top-0 z-50 bg-[#FAF7F0]">
-			<div class="mx-auto flex-col max-w-6xl flex-wrap items-center justify-between gap-4 px-4 pt-8 pb-8 md:flex-nowrap">
-				<a class="flex flex-row justify-center items-center gap-3 mb-10" href="/">
+			<div class="flex mx-auto xl:flex-col flex-row max-w-6xl flex-wrap items-center justify-between gap-4 px-4 pt-8 pb-8 flex-nowrap">
+				<a class="flex flex-row justify-center items-center gap-3 xl:mb-10" href="/">
 					<img
 						src="/ladybird.svg"
 						alt="Ladybird"
 						class="h-20 mr-2 w-auto max-w-[100px]"
 						loading="lazy"
 					/>
-					<p class="text-5xl">Victoria Todd</p>
+					<p class="text-3xl sm:text-5xl">Victoria Todd</p>
 				</a>
-				<nav class="hidden gap-6 text-md md:flex md:flex-1 md:gap-20 md:justify-center">
+				<nav class="hidden gap-6 text-md xl:flex xl:flex-1 xl:gap-20 xl:justify-center">
 					{navLinks.map((link) => (
 						<a class:list={[
 							'transition-colors hover:text-red-600 text-xl',
@@ -58,13 +58,13 @@ const linkIsActive = (href: string) => {
 						</a>
 					))}
 				</nav>
-				<button class="text-3xl text-black md:hidden" aria-label="Open navigation" onclick="document.querySelector('nav.mobile-menu')?.classList.toggle('hidden')">
+				<a class="text-3xl text-black xl:hidden" aria-label="Open navigation" onclick="document.querySelector('nav.mobile-menu')?.classList.toggle('hidden')">
 					<span class="sr-only">Menu</span>
 					&#9776;
-				</button>
+				</a>
 			</div>
-			<nav class="mobile-menu hidden border-t border-white/10 bg-white px-4 pt-4 pb-6 text-sm text-black md:hidden">
-				<div class="flex flex-col gap-3">
+			<nav class="mobile-menu hidden border-t border-b border-black/10 px-4 py-4 text-md text-black xl:hidden">
+				<div class="flex flex-col justify-center items-center gap-3">
 				{navLinks.map((link) => (
 					<a
 					class:list=[
@@ -91,7 +91,7 @@ const linkIsActive = (href: string) => {
 			</div>
 		</main>
 		<footer class="mt-16 bg-[url('/footer.svg')] bg-top bg-no-repeat">
-			<div class="mx-auto grid max-w-8xl gap-10 px-10 pt-20 pb-12 md:grid-cols-2">
+			<div class="mx-auto grid max-w-8xl gap-10 px-10 pt-20 pb-12 xl:grid-cols-2">
 				<div class="space-y-4">
 					<div class="flex items-center gap-3 text-white">
 						<img src="/ladybird.svg" alt="Ladybird" class="h-20 w-auto" loading="lazy" />
